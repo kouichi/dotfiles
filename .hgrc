@@ -1,0 +1,19 @@
+[ui]
+username=kouichi <kouichi.ohta+github@gmail.com>
+ignore=/Users/kouichi/.hgignore_global
+[merge-tools]
+sourcetreemerge.gui=False
+sourcetreebulkmerge.gui=False
+sourcetreemerge.binary=False
+sourcetreebulkmerge.executable=/Applications/SourceTree.app/Contents/Resources/hg-merge.sh
+sourcetreemerge.args=$local $other -ancestor $base -merge $output
+sourcetreemerge.checkconflicts=True
+sourcetreemerge.premerge=True
+sourcetreemerge.executable=/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh
+sourcetreebulkmerge.premerge=False
+sourcetreebulkmerge.binary=True
+[extdiff]
+cmd.sourcetreediff=opendiff
+opts.sourcetreediff=
+[web]
+cacerts=/etc/hg-ca-roots.pem
