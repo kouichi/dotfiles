@@ -1,5 +1,5 @@
 JAVA_HOME=`/usr/libexec/java_home`
-ANDROID_HOME=/Applications/Android\ Studio.app/sdk
+ANDROID_HOME=/Applications/android-sdk
 NODE_PATH=/usr/local/lib/node_modules
 
 PATH=$JAVA_HOME/bin:$PATH
@@ -7,6 +7,24 @@ PATH=$ANDROID_HOME/platform-tools:$PATH
 PATH=$PATH:$HOME/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export GOPATH=$HOME/.go
+export PYENV_ROOT=$HOME/.pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+if pyenv which aws_zsh_completer.sh 1>/dev/null 2>&1; then
+  source "$(pyenv which aws_zsh_completer.sh)"
+fi
+
+#  complete -C aws_completer aws
+
+# Docker
+DOCKER_HOST=tcp://192.168.59.103:2376
+DOCKER_CERT_PATH=/Users/kouichi/.boot2docker/certs/boot2docker-vm
+DOCKER_TLS_VERIFY=1
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/kouichi/.gvm/bin/gvm-init.sh" ]] && source "/Users/kouichi/.gvm/bin/gvm-init.sh"
@@ -32,6 +50,8 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 
 alias zmv='noglob zmv -W'
+
+alias brew="env PATH=${PATH/\/Users\/kouichi\/\.pyenv\/shims:/} brew"
 
 alias -g L='| less'
 alias -g H='| head'
@@ -107,3 +127,4 @@ add-zsh-hook precmd _update_vcs_info_msg
 function zman() {
   PAGER="less -g -s '+/^ {7}"$1"'" man zshall
 }
+
