@@ -3,5 +3,7 @@
 	email = kouichi.ohta@gmail.com
 [core]
 	excludesfile = /Users/kouichi/.gitignore_global
+	autocrlf = input
+	safecrlf = true
 [color]
 	ui = auto
